@@ -12,4 +12,10 @@ export class EmployeeService {
   getAllEmps(): Observable<Employee[]> {
     return this.hc.get<Employee[]>(this.baseURL);
   }
+  /* createEmp(emp: Employee): Observable<Object> {
+    return this.hc.post(this.baseURL, emp);
+  } */
+  createEmp(emp: Employee): Observable<Employee> {
+    return this.hc.post<Employee>(this.baseURL, emp);
+  }
 }
