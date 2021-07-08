@@ -28,10 +28,10 @@ export class EmployeeListComponent implements OnInit {
       this.employees = data;
     });
   }
-  updateEmployee(id) {
+  updateEmployee(id: number) {
     this.router.navigate(['update-employee', id]);
   }
-  deleteEmployee(id) {
+  deleteEmployee(id: number) {
     this.es.deleteEmp(id).subscribe(
       (data) => {
         console.log(data);
@@ -39,5 +39,8 @@ export class EmployeeListComponent implements OnInit {
       },
       (err) => console.log(err)
     );
+  }
+  employeeDetails(id: number) {
+    this.router.navigate(['employee-details', id]);
   }
 }
